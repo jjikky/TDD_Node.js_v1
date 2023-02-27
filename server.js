@@ -4,6 +4,8 @@ const port = 5000;
 
 const app = express();
 
+var bodyParser = require("body-parser");
+app.use(bodyParser.json());
 const productRoutes = require("./routes");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
