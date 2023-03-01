@@ -25,8 +25,14 @@ mongoose
 
 app.use("/api/products", productRoutes);
 
+app.use((error, req, res, next) => {
+  res.status(500).json({ message: error.message });
+});
+
 app.use(express.json());
 
 app.listen(port);
 
 console.log(`App running on http://localhost:${port}`);
+
+module.exports = app;

@@ -7,9 +7,9 @@ exports.hello = (req, res) => {
 exports.createProduct = async (req, res, next) => {
   try {
     const createdProduct = await productModel.create(req.body);
-    console.log(createdProduct);
+    // console.log(createdProduct);
     res.status(201).json(createdProduct);
   } catch (error) {
-    next(error); // 비동기 에러 처리
+    next(error); // 비동기 에러 처리, Error handler middleware로 처리를 이동
   }
 };
